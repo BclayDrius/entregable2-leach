@@ -1,145 +1,81 @@
-# 💪 Entregable 2 – Gestor de Rutinas de Gimnasio
+# 🏋️ Ecommerce Fitness – Proyecto Final JavaScript
 
-Proyecto realizado por **Barclay Leach**, estudiante de la Comisión **73500 de JavaScript**.  
-Soy de Perú 🇵🇪 y esta es mi segunda entrega... ¡ahora con **DOM, eventos y almacenamiento local**! 😄
-
----
-
-## 🎯 Objetivos Generales
-
-- Crear un simulador interactivo que funcione completamente en el DOM.
-- Aplicar manipulación del DOM, eventos y almacenamiento local.
-- Eliminar completamente el uso de `prompt`, `alert` y `console.log`.
-- Implementar una interfaz visual profesional y funcional.
+Proyecto realizado por **Barclay Leach**, Comisión **73500**. País: Perú 🇵🇪
 
 ---
 
-## 🧩 Objetivos Específicos
+## 🎯 Objetivo General
 
-- Capturar datos mediante formularios HTML.
-- Manipular el DOM dinámicamente para mostrar información.
-- Usar eventos para la interactividad (`submit`, `click`).
-- Implementar **localStorage** para persistencia de datos.
-- Crear una experiencia de usuario fluida y visual.
+Crear un simulador interactivo 100% funcional: un **Ecommerce de productos fitness** con flujo completo de compra.
 
 ---
 
-## 📁 Estructura del Proyecto
+## 🧩 Objetivos Específicos (cumplidos)
 
-/index.html → Documento principal con formulario y visualización
-/css/styles.css → Estilos con background de Arnold
-/js/app.js → Lógica completa con clases y métodos
-/assets/arnold.jpg → Imagen de fondo para diseño profesional
-
----
-
-## 🚀 Cómo funciona el Gestor de Rutinas
-
-### 🔄 Flujo Principal
-
-1. **Interfaz Visual** → Página con diseño profesional usando imagen de Arnold como fondo.
-2. **Formulario Interactivo** → Campos para nombre, series y repeticiones.
-3. **Validación en Tiempo Real** → Verificación de datos sin usar alert/prompt.
-4. **Visualización Dinámica** → Los ejercicios aparecen inmediatamente en la lista.
-5. **Persistencia** → La rutina se guarda automáticamente en `localStorage`.
-6. **Gestión Completa** → Agregar, eliminar y visualizar ejercicios.
-
-### ✨ Características Avanzadas
-
-- Prevención de duplicados.
-- Estadísticas en vivo (contador de ejercicios y series totales).
-- Mensajes visuales de confirmación y error.
-- Diseño responsive (móviles y desktop).
-- Efectos de **glassmorphism** y animaciones suaves.
+- **Datos remotos (simulados con JSON)**: carga asíncrona desde `assets/products.json` usando `fetch`.
+- **HTML interactivo generado desde JS**: catálogo, carrito y checkout renderizados dinámicamente.
+- **Uso de librerías externas**: `SweetAlert2` para modales, `Toastify` para toasts.
+- **Lógica de negocio completa**: búsqueda, filtros, ordenamiento, carrito, checkout y persistencia.
+- **Proyecto HTML + CSS + JS funcional**: arquitectura clara y código legible.
 
 ---
 
-## 👨‍🏫 Criterios de Evaluación (y cómo los abordé)
+## 🚀 Cómo usar
 
-| Criterio                 | ¿Lo cumple? | Implementación                                                            |
-| ------------------------ | ----------- | ------------------------------------------------------------------------- |
-| Estructura HTML completa | ✅          | Formulario semántico, secciones organizadas, accesibilidad                |
-| Archivo JS referenciado  | ✅          | Conectado al final del body, carga optimizada                             |
-| Manipulación del DOM     | ✅          | Renderizado dinámico, creación de elementos, actualización en tiempo real |
-| Eventos implementados    | ✅          | `submit` del formulario, `click` en botones, `DOMContentLoaded`           |
-| Sin prompt/alert         | ✅          | Toda interacción visual en la página con mensajes elegantes               |
-| Objetos y Arrays         | ✅          | Clase `Ejercicio`, array de rutinas, métodos organizados                  |
-| localStorage             | ✅          | Persistencia automática, carga al iniciar, manejo de errores              |
+1. Abrir `index.html` en el navegador (o servir con un servidor local).
+2. Explorar el **catálogo**: buscar, filtrar por categoría y ordenar por precio.
+3. Agregar productos al **carrito**, modificar cantidades, eliminar ítems o vaciar todo.
+4. Click en **Finalizar compra** para abrir el checkout (modal).
+5. El formulario viene **precargado** y valida campos. Confirmar para simular el pago.
+6. Verás una confirmación con **Nº de orden** y el carrito se vacía.
 
----
-
-## 🔧 Arquitectura Técnica
-
-### 🏗️ Clases Implementadas
-
-- **`Ejercicio`** → Modelo de datos para cada ejercicio.
-- **`GestorRutina`** → Controlador principal que maneja toda la lógica.
-
-### ⚙️ Métodos Principales
-
-- `inicializar()` → Configura la aplicación al cargar.
-- `agregarEjercicio()` → Valida y agrega ejercicios.
-- `eliminarEjercicio()` → Remueve ejercicios específicos.
-- `renderizarRutina()` → Actualiza la visualización en el DOM.
-- `guardarRutina()` / `cargarRutinaGuardada()` → Persistencia en `localStorage`.
-
-### ✅ Validaciones Implementadas
-
-- Campos obligatorios y rangos numéricos.
-- Prevención de duplicados.
-- Manejo de errores de localStorage.
-- Feedback visual inmediato.
+> El carrito y los datos de checkout se guardan en `localStorage` y se restauran al recargar.
 
 ---
 
-## 🎨 Diseño y UX
+## 🏗️ Arquitectura
 
-### 🎭 Elementos Visuales
+- `assets/products.json` → catálogo de productos (JSON simulado remoto).
+- `index.html` → estructura base, incluye SweetAlert2 y Toastify desde CDN.
+- `css/styles.css` → estilos responsive para catálogo, carrito y checkout.
+- `js/app.js` → toda la lógica: fetch, render, carrito, checkout, persistencia.
 
-- **Background profesional** → Imagen de Arnold con overlay elegante.
-- **Glassmorphism** → Efectos de blur y transparencia.
-- **Animaciones suaves** → Transiciones y hover effects.
-- **Iconografía con emojis** para mejor UX.
-- **Responsive Design** → Adaptable a todos los dispositivos.
+### Clases principales en `js/app.js`
 
-### 👥 Experiencia de Usuario
-
-- Flujo intuitivo: Agregar → Visualizar → Gestionar.
-- Feedback inmediato con mensajes visibles.
-- Persistencia automática → los datos no se pierden.
-- Interacción natural → sin interrupciones molestas.
+- **ProductService**: obtiene productos desde JSON (async/await).
+- **Product**: modelo de producto.
+- **CartItem / Cart**: manejo de ítems, cantidades, totales y persistencia.
+- **UI**: referencias al DOM, toasts y modales.
+- **AppController**: orquesta filtros, render, eventos y flujo de checkout.
 
 ---
 
-## 📊 Funcionalidades Extra Implementadas
+## 📊 Criterios de Evaluación
 
-- Estadísticas en tiempo real (ejercicios y series).
-- Función de exportar (copiar la rutina al portapapeles).
-- Botón de limpieza completa para resetear la rutina.
-- Validación avanzada con múltiples capas.
-- Manejo de estados (rutina vacía vs. con contenido).
-
----
-
-## ⚠️ Nota Final
-
-Esta es una evolución significativa respecto al **Entregable 1**:
-
-✅ No usa `prompt`, `alert` ni `console.log`.  
-✅ Interactúa completamente con el DOM.  
-✅ Tiene persistencia de datos real.  
-✅ Diseño profesional y moderno.  
-✅ Código organizado en clases y métodos.
-
-El simulador está listo para uso real y demuestra dominio de:
-
-- Manipulación del DOM
-- Eventos de JavaScript
-- localStorage
-- Programación orientada a objetos
-- Diseño responsive
-- UX/UI profesional
+- **Funcionalidad**: se simula el flujo completo de compra sin errores.
+- **Interactividad**: entradas mediante inputs y eventos; salidas coherentes en HTML, actualizadas de forma asíncrona.
+- **Escalabilidad**: clases con responsabilidades claras; arrays de objetos; recorrido eficiente; funciones con parámetros.
+- **Integridad**: JS en archivo externo referenciado; datos estáticos en JSON **cargados asíncronamente**; sin `console.log`, `alert`, `prompt` ni `confirm`.
+- **Legibilidad**: nombres significativos; código ordenado; comentarios breves y útiles; estilos consistentes.
 
 ---
 
-📌 **¡Gracias por revisar mi proyecto! 🏋️‍♂️**
+## ✨ Funcionalidades destacadas
+
+- Búsqueda, filtros por categoría y ordenamiento de precios.
+- Carrito con agregar, quitar y actualizar cantidades con stock máximo.
+- Totales en vivo (cantidad y monto).
+- Checkout en modal con **SweetAlert2** y toasts de **Toastify**.
+- Persistencia con `localStorage` del carrito y datos del cliente.
+- Diseño responsive y moderno.
+
+---
+
+## 🔒 Notas
+
+- No se usan `console.log`, `alert`, `prompt` ni `confirm`.
+- Para evitar CORS al abrir como archivo, es recomendable servir con un servidor local (por ejemplo, VSCode Live Server) si el navegador bloquea `fetch` de archivos locales.
+
+---
+
+¡Gracias por revisar mi proyecto! 💪
